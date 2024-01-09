@@ -61,7 +61,7 @@ def create_place(city_id):
     place_data['user_id'] = user.id
     place = Place(**place_data)
     place.save()
-    return jsonify(place)
+    return jsonify(place.to_dict()), 201
 
 
 @app_views.route('/places/<place_id>', methods=['PUT'], strict_slashes=False)
